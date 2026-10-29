@@ -5,7 +5,7 @@ firebase.initializeApp({
   apiKey: "AIzaSyBvgTpSZGvWMcrXiDIcpoCVzBo1YTUQhhw",
   projectId: "pwa-test-28530",
   messagingSenderId: "G-JZ5X8T700Q",
-  appId: ":645077281523:web:5ee5306bb9ef84c9be6586"
+  appId: "1:645077281523:web:5ee5306bb9ef84c9be6586"
 });
 
 const messaging = firebase.messaging();
