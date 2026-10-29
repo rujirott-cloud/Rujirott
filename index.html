@@ -17,10 +17,10 @@
   <script>
     // 1. ตั้งค่า Firebase (เอาค่า config ของคุณมาใส่)
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      projectId: "YOUR_PROJECT_ID",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyBvgTpSZGvWMcrXiDIcpoCVzBo1YTUQhhw",
+      projectId: "pwa-test-28530",
+      messagingSenderId: "G-JZ5X8T700Q",
+      appId: "1:645077281523:web:5ee5306bb9ef84c9be6586"
     };
     firebase.initializeApp(firebaseConfig);
     const messaging = firebase.messaging();
@@ -49,7 +49,7 @@
     // 4. ส่งข้อมูลไป Apps Script
     document.getElementById('sendBtn').addEventListener('click', () => {
       const msg = document.getElementById('msgInput').value;
-      const gasUrl = "ใส่_WEB_APP_URL_ของคุณที่นี่"; 
+      const gasUrl = "https://script.google.com/macros/s/AKfycbxzhy2U3u2sGfEtKTALBY1goJQyKg5bKsj-wdHce9JoB55laVBrt-kllgGscklF748M/exec"; 
       
       fetch(gasUrl, {
         method: 'POST',
