@@ -46,16 +46,34 @@
       alert("แจ้งเตือนใหม่: " + payload.notification.body);
     });
 
-    // 4. ส่งข้อมูลไป Apps Script
-    document.getElementById('sendBtn').addEventListener('click', () => {
-      const msg = document.getElementById('msgInput').value;
-      const gasUrl = "https://script.google.com/macros/s/AKfycbxzhy2U3u2sGfEtKTALBY1goJQyKg5bKsj-wdHce9JoB55laVBrt-kllgGscklF748M/exec"; 
-      
-      fetch(gasUrl, {
-        method: 'POST',
-        body: JSON.stringify({ message: msg, recipient: "All" }),
-      }).then(res => res.json()).then(data => alert('บันทึกสำเร็จ'));
-    });
+// 4. ส่งข้อมูลไป Apps Script
+document.getElementById('sendBtn').addEventListener('click', () => {
+  const msg = document.getElementById('msgInput').value;
+  if (!msg) {
+    alert('กรุณากรอกข้อความก่อนส่ง');
+    return;
+  }
+
+  const gasUrl = "https://script.google.com/macros/s/AKfycbxzhy2U3u2sGfEtKTALBY1goJQyKg5bKsj-wdHce9JoB55laVBrt-kllgGscklF748M/exec"; 
+  
+  // ใช้ text/plain ป้องกันปัญหา CORS Preflight ใน Apps Script
+  fetch(gasUrl, {
+    method: 'POST',
+    mode: 'no-cors', 
+    headers: {
+      'Content-Type': 'text/plain'
+    },
+    body: JSON.stringify({ message: msg, recipient: "All" }),
+  })
+  .then(() => {
+    alert('ส่งข้อมูลเรียบร้อยแล้ว!');
+    document.getElementById('msgInput').value = ''; // ล้างช่องกรอกข้อความ
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('เกิดข้อผิดพลาดในการส่งข้อมูล');
+  });
+});
   </script>
 </body>
 </html>
