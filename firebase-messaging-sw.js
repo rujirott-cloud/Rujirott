@@ -4,7 +4,7 @@ importScripts('https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging-comp
 firebase.initializeApp({
   apiKey: "AIzaSyBvgTpSZGvWMcrXiDIcpoCVzBo1YTUQhhw",
   projectId: "pwa-test-28530",
-  messagingSenderId: "G-JZ5X8T700Q",
+  messagingSenderId: "645077281523",
   appId: "1:645077281523:web:5ee5306bb9ef84c9be6586"
 });
 
